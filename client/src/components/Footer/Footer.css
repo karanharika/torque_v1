@@ -1,0 +1,39 @@
+/* Main row for the footer. */
+.footerRow {
+  padding: 5% 0;
+}
+
+.addressText {
+  font-weight: lighter;
+  font-size: smaller;
+}
+
+.directionsButton {
+  width: auto;
+}
+
+.directionsButton:hover {
+  border-color: #198754;
+  background-color: #198754;
+  color: rgb(255, 248, 240);
+}
+
+.footerCallButton {
+  margin: 5px 0 0 0;
+  width: auto;
+}
+
+.footerCallButton:hover {
+  border-color: #198754;
+  background-color: #198754;
+  color: rgb(255, 248, 240);
+}
+
+.noDesignLink {
+  width: auto;
+  color: rgb(255, 248, 240);
+}
+
+.noDesignLink:hover {
+  color: #198754;
+}

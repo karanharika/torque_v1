@@ -1,0 +1,91 @@
+/* MAIN BODY COLORS */
+body {
+  color: rgb(255, 248, 240);
+  background-color: rgb(42, 42, 42);
+  max-width: 100%;
+}
+
+/* Main root container for home page. Everything on homepage is in this container */
+.rootContainer {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Properties for container image on top of Homepage */
+.homepageImageContainer {
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Properties for homepage image itself */
+.homepageImage {
+  /* position:absolute;
+    top: 0; */
+  z-index: -1;
+  width: 100%;
+  height: calc(100vh - 70px);
+  object-fit: cover;
+}
+
+/* Title text over the homepage image */
+.homepageImageTitle {
+  position: absolute;
+  top: 33.33%;
+  left: 69%;
+  /* padding: 0.5%; */
+  transform: translate(-50%, -50%);
+}
+
+/* Container for the Omnisearch Bar */
+.omnisearchContainer {
+  position: absolute;
+  top: 60%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  max-width: 40%;
+}
+
+/* Omnisearch Bar and button column properties */
+.omnisearchCol {
+  padding: 0 5px;
+}
+
+/* Omnisearch Bar - Input field */
+.omnisearch {
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+/* Omnisearch Bar - Search Button */
+.omnisearchButton {
+  width: 100%;
+  height: calc(100% - 20px);
+}
+
+.headingCenter {
+  margin: auto;
+  padding: 50px 0 20px 0;
+  text-align: center;
+}
+
+.starColor {
+  color: yellow;
+}
+
+.carouselImages {
+  padding-bottom: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.reviewButton {
+  margin: 10px;
+}
