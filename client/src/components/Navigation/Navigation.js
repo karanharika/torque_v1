@@ -35,8 +35,9 @@ function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/inventory">Part Finder</Nav.Link>
-            <Nav.Link href="#shipping">Shipping</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/inventory">Parts Inventory</Nav.Link>
+            {/* <Nav.Link href="#shipping">Shipping</Nav.Link>
             <NavDropdown title="Services" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Service</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -47,7 +48,7 @@ function Navigation() {
               <NavDropdown.Item href="#action/3.4">
                 Separated Service
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
           <Nav>
             <Nav.Link href="/contact">Contact Us</Nav.Link>

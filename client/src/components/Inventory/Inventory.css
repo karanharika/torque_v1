@@ -1,0 +1,17 @@
+.rootContainer {
+    margin: 0;
+}
+
+.marginControl {
+    margin: 10px 0 5px 0;
+    padding: 0;
+    width: 100%;
+}
+
+.filteringRows {
+    margin: 50px 0 0 5%;
+}
+
+.partsDisplayRow {
+    width: auto;
+}

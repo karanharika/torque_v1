@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Contact from "./components/Contact/Contact";
+import Inventory from "./components/Inventory/Inventory";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import PartFinder from "./components/PartFinder/PartFinder";
 
@@ -20,7 +21,7 @@ import AdminMake from "./pages/admin/AddMake";
 import AdminModel from "./pages/admin/Model";
 import AdminParts from "./pages/admin/Parts";
 import AdminPartUpdate from "./pages/admin/PartUpdate";
-import Inventory from "./pages/Inventory";
+// import Inventory from "./pages/Inventory";
 import PartView from "./pages/PartView";
 import CategoriesList from "./pages/CategoriesList";
 import CategoryView from "./pages/CategoryView";

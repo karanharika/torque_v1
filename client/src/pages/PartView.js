@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 
 export default function PartView() {
   //state
@@ -46,6 +47,11 @@ export default function PartView() {
             <p>Make : {part?.make?.name}</p>
             <p>Model : {part?.model?.name}</p>
             <p>Posted : {moment(part.createdAt).fromNow()}</p>
+            <Button
+              variant="success"
+              onClick={() => window.history.back()}>
+              Back
+            </Button>
           </div>
         </div>
       </div>
