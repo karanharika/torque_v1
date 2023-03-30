@@ -148,7 +148,7 @@ export default function AdminPartUpdate() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="p-3 mt-2 mb-2 bg-light">
+            <div className="p-3 mt-2 mb-2  ">
               <h4>Update Part</h4>
             </div>
             <form onSubmit={handleSubmit}>

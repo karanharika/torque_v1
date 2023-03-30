@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function AdminMenu() {
   return (
     <>
-      <div className="p-3 mt-2 mb-2 bg-light">
+      <div className="p-3 mt-2 mb-2  ">
         <h4>Admin Links</h4>
       </div>
 

@@ -100,7 +100,7 @@ export default function AdminCategory() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="p-3 mt-2 mb-2 bg-light">
+            <div className="p-3 mt-2 mb-2  ">
               <h4>Manage Categories</h4>
             </div>
             <CategoryForm

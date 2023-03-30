@@ -37,7 +37,7 @@ export default function AdminParts() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="p-3 mt-2 mb-2 bg-light">
+            <div className="p-3 mt-2 mb-2  ">
               <h4>manage your parts here</h4>
             </div>
             {parts?.map((p) => (

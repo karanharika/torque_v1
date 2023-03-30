@@ -88,11 +88,13 @@ export default function AdminPart() {
         toast.error(data.error);
       } else {
         toast.success(`"${data.name}" is successfully created.`);
+        window.alert(`"${data.name}" is successfully created.`);
         navigate("/dashboard/admin/parts");
       }
     } catch (err) {
       console.log(err);
       toast.error(err);
+      window.alert(err);
     }
   };
 
@@ -108,7 +110,7 @@ export default function AdminPart() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="p-3 mt-2 mb-2 bg-light">
+            <div className="p-3 mt-2 mb-2  ">
               <h4>Add your Part to the system</h4>
             </div>
             <form onSubmit={handleSubmit}>

@@ -9,7 +9,7 @@ export default function Search() {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const omniSearch = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(`/parts/search/${values?.keyword}`);
@@ -23,7 +23,7 @@ export default function Search() {
 
   return (
     <>
-      <Form className="d-flex" onSubmit={handleSubmit}>
+      <Form className="d-flex" onSubmit={omniSearch}>
         <Form.Control
           type="search"
           placeholder="Search"

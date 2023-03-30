@@ -89,3 +89,7 @@ body {
 .reviewButton {
   margin: 10px;
 }
+
+.emailSentText {
+  display: none;
+}

@@ -40,11 +40,14 @@ export default function AdminModel() {
       } else {
         setName("");
         loadModels();
+        window.alert(`"${data.name}" created successfully`);
         toast.success(`"${data.name}" created successfully`);
+        console.log("Success");
       }
     } catch (err) {
       console.log(err);
       toast.error("Model creation failed. Try again.");
+      console.log("Fail");
     }
   };
 
@@ -100,7 +103,7 @@ export default function AdminModel() {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <div className="p-3 mt-2 mb-2 bg-light">
+            <div className="p-3 mt-2 mb-2  ">
               <h4>Manage Models</h4>
             </div>
             <ModelForm

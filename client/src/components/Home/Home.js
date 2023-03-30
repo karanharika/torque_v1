@@ -1,4 +1,8 @@
 import React, { Component, useState, useRef } from "react";
+import axios from "axios";
+import { useSearch } from "../../context/search";
+import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 // import React from "react";
 import "./Home.css";
 import Container from "react-bootstrap/Container";
@@ -29,14 +33,74 @@ import Tooltip from "react-bootstrap/Tooltip";
 function Home() {
   const [validated, setValidated] = useState(false);
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const form = useRef();
+
+  const [values, setValues] = useSearch();
+  const navigate = useNavigate();
+
+  const omniSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.get(`/parts/search/${values?.keyword}`);
+      // console.log(data);
+      setValues({ ...values, results: data });
+      navigate("/search");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_u70f1p5",
+        "template_o84l1e9",
+        form.current,
+        "zNU2V_Qv1_0h_F7_7"
+      )
+      .then(
+        (result) => {
+          console.log(result.text, "display");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    // console.log("above");
 
     setValidated(true);
+
+    // console.log("vali");
+
+    emailjs
+      .sendForm(
+        "service_u70f1p5",
+        "template_o84l1e9",
+        form.current,
+        "zNU2V_Qv1_0h_F7_7"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   const renderTooltip = (props) => (
@@ -71,12 +135,20 @@ function Home() {
                   className="me-2 omnisearchField"
                   aria-label="Enter a Keyword or Part Number"
                   aria-describedby="basic-addon2"
+                  onChange={(e) =>
+                    setValues({ ...values, keyword: e.target.value })
+                  }
+                  value={values.keyword}
                 />
               </FloatingLabel>
             </Col>
 
             <Col sm={3} className="omnisearchCol">
-              <Button className="omnisearchButton" variant="success">
+              <Button
+                className="omnisearchButton"
+                variant="success"
+                onClick={omniSearch}
+              >
                 Search
               </Button>
             </Col>
@@ -195,6 +267,7 @@ function Home() {
 
         <Row>
           <Form
+            ref={form}
             className="centerFormcontrol"
             noValidate
             validated={validated}
@@ -207,6 +280,7 @@ function Home() {
                   required
                   type="text"
                   placeholder="Enter your name"
+                  name="name"
                   // defaultValue="Mark"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -224,6 +298,7 @@ function Home() {
                     placeholder="example@email.com"
                     aria-describedby="inputGroupPrepend"
                     required
+                    name="email"
                   />
                   <Form.Control.Feedback type="invalid">
                     Please enter a valid email.
@@ -238,6 +313,7 @@ function Home() {
                     type="tel"
                     placeholder="+1 604 xxx xxxx"
                     aria-describedby="inputGroupPrepend"
+                    name="phone"
                   />
                   <Form.Control.Feedback>
                     Phone number is optional.
@@ -255,6 +331,7 @@ function Home() {
                   required
                   type="text"
                   placeholder="I was wondering about availability and rates. I need help with following:"
+                  name="message"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">

@@ -6,10 +6,10 @@ export default function Dashboard() {
   //context
   const [auth] = useAuth();
 
-
   return (
     <>
-      <Jumbotron className="removeTitle"
+      <Jumbotron
+        className="removeTitle"
         title={`Hello ${auth?.user?.name}`}
         subTitle="Welcome to Admin Dashboard"
       />
