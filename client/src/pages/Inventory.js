@@ -4,6 +4,7 @@ import axios from "axios";
 import PartCard from "../components/cards/PartCard";
 import { Checkbox, Radio } from "antd";
 import { prices } from "../prices";
+import Search from "../components/forms/Search";
 
 export default function Inventory() {
   const [categories, setCatrgories] = useState([]);
@@ -23,7 +24,9 @@ export default function Inventory() {
   }, [checked.length, radio.length]);
 
   useEffect(() => {
-    if (page === 1) return;
+    if (page === 1) {
+      return;
+    }
     loadMore();
     // eslint-disable-next-line
   }, [page]);
@@ -108,12 +111,16 @@ export default function Inventory() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
+            <div className="row p-5">
+              <Search />
+            </div>
             <h2 className="p-3 mt-2 mb-2 h4 bg-lighjt text-center">
               Filter by Categories
             </h2>
             <div className="row p-5">
               {categories?.map((c) => (
                 <Checkbox
+                  className="text-white fs-6"
                   key={c._id}
                   onChange={(e) => handleCheck(e.target.checked, c._id)}
                 >
@@ -128,7 +135,9 @@ export default function Inventory() {
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {prices?.map((p) => (
                   <div key={p._id} style={{ marginLeft: "8px" }}>
-                    <Radio value={p.array}>{p.name}</Radio>
+                    <Radio className="text-white fs-6" value={p.array}>
+                      {p.name}
+                    </Radio>
                   </div>
                 ))}
               </Radio.Group>
@@ -147,7 +156,7 @@ export default function Inventory() {
             <h2 className="p-3 mt-2 mb-2 h4 bg-lighjt text-center">
               Available Parts
             </h2>
-            <div className="row" style={{ height: "80vh", overflow: "scroll" }}>
+            <div className="row">
               {parts?.map((p) => (
                 <div className="col-md-4" key={p._id}>
                   <PartCard p={p} />

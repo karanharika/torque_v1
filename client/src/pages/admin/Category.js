@@ -32,19 +32,20 @@ export default function AdminCategory() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const { data } = await axios.post("/category", { name });
       if (data?.error) {
         toast.error(data.error);
+        window.alert(data.error);
       } else {
         setName("");
         loadCategories();
-        toast.success(`"${data.name}" created successfully`);
+        window.alert(`"${data.name}" created successfully.`);
       }
     } catch (err) {
       console.log(err);
-      toast.error("Category creation failed. Try again.");
+      window.alert("Category creation failed. Try again.");
     }
   };
 

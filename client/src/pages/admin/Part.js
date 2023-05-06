@@ -86,6 +86,7 @@ export default function AdminPart() {
       const { data } = await axios.post("/part", partData);
       if (data?.error) {
         toast.error(data.error);
+        window.alert(data.error);
       } else {
         toast.success(`"${data.name}" is successfully created.`);
         window.alert(`"${data.name}" is successfully created.`);
@@ -93,7 +94,6 @@ export default function AdminPart() {
       }
     } catch (err) {
       console.log(err);
-      toast.error(err);
       window.alert(err);
     }
   };

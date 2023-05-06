@@ -32,19 +32,18 @@ export default function AdminMake() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
       const { data } = await axios.post("/make", { name });
       if (data?.error) {
-        toast.error(data.error);
+        window.alert(data.error);
       } else {
         setName("");
         loadMakes();
-        toast.success(`"${data.name}" created successfully`);
+        window.alert(`"${data.name}" created successfully`);
       }
     } catch (err) {
       console.log(err);
-      toast.error("Make creation failed. Try again.");
+      window.alert("Make creation failed. Try again.");
     }
   };
 
@@ -55,9 +54,9 @@ export default function AdminMake() {
         name: updatingName,
       });
       if (data?.error) {
-        toast.error(data.error);
+        window.alert(data.error);
       } else {
-        toast.success(`${data.name} is updated`);
+        window.alert(`${data.name} is updated`);
         setSelected(null);
         setUpdatingName("");
         loadMakes();
@@ -65,7 +64,7 @@ export default function AdminMake() {
       }
     } catch (err) {
       console.log(err);
-      toast.error("Make may already exist. Try again.");
+      window.alert("Make may already exist. Try again.");
     }
   };
 

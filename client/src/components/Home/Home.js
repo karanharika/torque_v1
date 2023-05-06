@@ -31,8 +31,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 function Home() {
-  const [validated, setValidated] = useState(false);
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -57,34 +55,6 @@ function Home() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_u70f1p5",
-        "template_o84l1e9",
-        form.current,
-        "zNU2V_Qv1_0h_F7_7"
-      )
-      .then(
-        (result) => {
-          console.log(result.text, "display");
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    // console.log("above");
-
-    setValidated(true);
-
-    // console.log("vali");
 
     emailjs
       .sendForm(
@@ -96,11 +66,14 @@ function Home() {
       .then(
         (result) => {
           console.log(result.text);
+          window.alert("Email sent");
         },
         (error) => {
           console.log(error.text);
+          window.alert(error.text);
         }
       );
+    e.target.reset();
   };
 
   const renderTooltip = (props) => (
@@ -266,13 +239,7 @@ function Home() {
         </Row>
 
         <Row>
-          <Form
-            ref={form}
-            className="centerFormcontrol"
-            noValidate
-            validated={validated}
-            onSubmit={handleSubmit}
-          >
+          <Form ref={form} className="centerFormcontrol" onSubmit={sendEmail}>
             <Row className="mb-3">
               <Form.Group as={Col} md="4" controlId="validationCustom01">
                 <Form.Label>Full Name</Form.Label>
@@ -280,45 +247,30 @@ function Home() {
                   required
                   type="text"
                   placeholder="Enter your name"
-                  name="name"
-                  // defaultValue="Mark"
+                  name="user_name"
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please enter you name.
-                </Form.Control.Feedback>
               </Form.Group>
             </Row>
             <Row>
               <Form.Group as={Col} md="4" controlId="validationCustomUsername">
                 <Form.Label>Email</Form.Label>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="email"
-                    placeholder="example@email.com"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                    name="email"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter a valid email.
-                  </Form.Control.Feedback>
-                </InputGroup>
+                <Form.Control
+                  type="email"
+                  placeholder="example@email.com"
+                  aria-describedby="inputGroupPrepend"
+                  required
+                  name="user_email"
+                />
               </Form.Group>
 
               <Form.Group as={Col} md="4" controlId="validationCustomUsername">
                 <Form.Label>Phone (optoinal)</Form.Label>
-                <InputGroup hasValidation>
-                  <Form.Control
-                    type="tel"
-                    placeholder="+1 604 xxx xxxx"
-                    aria-describedby="inputGroupPrepend"
-                    name="phone"
-                  />
-                  <Form.Control.Feedback>
-                    Phone number is optional.
-                  </Form.Control.Feedback>
-                </InputGroup>
+                <Form.Control
+                  type="tel"
+                  placeholder="+1 604 xxx xxxx"
+                  aria-describedby="inputGroupPrepend"
+                  name="user_phone"
+                />
               </Form.Group>
             </Row>
 
@@ -331,12 +283,8 @@ function Home() {
                   required
                   type="text"
                   placeholder="I was wondering about availability and rates. I need help with following:"
-                  name="message"
+                  name="user_message"
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please type your request.
-                </Form.Control.Feedback>
               </Form.Group>
             </Row>
 

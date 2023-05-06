@@ -110,9 +110,9 @@ export default function AdminPartUpdate() {
 
       const { data } = await axios.put(`/part/${id}`, partData);
       if (data?.error) {
-        toast.error(data.error);
+        window.alert(data.error);
       } else {
-        toast.success(`"${data.name}" is successfully updated.`);
+        window.alert(`"${data.name}" is successfully updated.`);
         navigate("/dashboard/admin/parts");
         window.location.reload();
       }
@@ -128,11 +128,11 @@ export default function AdminPartUpdate() {
       let answer = window.confirm("Are you sure you want to delete this part?");
       if (!answer) return;
       const { data } = await axios.delete(`/part/${id}`);
-      toast.success(`"${data.name}" is successfully updated.`);
+      window.alert(`"${data.name}" is successfully deleted.`);
       navigate("/dashboard/admin/parts");
     } catch (err) {
       console.log(err);
-      toast.error("Deletion failed. Try again.");
+      window.alert("Deletion failed. Try again.");
     }
   };
 

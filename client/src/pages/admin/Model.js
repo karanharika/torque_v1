@@ -32,7 +32,7 @@ export default function AdminModel() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const { data } = await axios.post("/model", { name });
       if (data?.error) {

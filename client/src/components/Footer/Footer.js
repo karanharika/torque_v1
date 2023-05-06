@@ -49,7 +49,7 @@ class Footer extends Component {
               </a>
             </Row>
             <Row>
-              <a className="noDesignLink" href="/partfinder">
+              <a className="noDesignLink" href="/inventory">
                 Part Finder
               </a>
             </Row>

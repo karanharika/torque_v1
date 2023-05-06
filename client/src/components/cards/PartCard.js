@@ -10,7 +10,7 @@ export default function PartCard({ p }) {
         alt={p.name}
         style={{ height: "200px", objectFit: "cover" }}
       />
-      <div className="card-body">
+      <div className="card-body" style={{ backgroundColor: "#2A2A2A" }}>
         <h5>{p.name}</h5>
         <p className="card-text">{p?.description?.substring(0, 60)}</p>
         <p>Year : {p.truckYear}</p>
